@@ -85,7 +85,12 @@ def request_page(
         JET2_ENDPOINT,
         params=params,
         impersonate="chrome",
+        http_version="v1",
         timeout=30,
+        headers={
+            "Referer": "https://www.jet2holidays.com/",
+            "Accept": "application/json, text/plain, */*",
+        },
     )
     response.raise_for_status()
     return response.json()
